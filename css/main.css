@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.lay,
+.lay1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #9e9e9eba;
+    z-index: 2;
+}
+
+.lay1 {
+    display: none;
+}
+
+.lay button,
+.lay1 p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 11px 46px;
+    background-color: #f44336;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+.container {
+    width: 900px;
+    height: 100vh;
+    padding: 10px;
+    margin: 0px auto;
+    background-color: #eee;
+}
+
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid black;
+    font-weight: bold;
+    font-size: 24px;
+    color: green;
+    padding: 10px 20px;
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+header span {
+    color: #f44336;
+}
+
+section {
+    background-color: white;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
+}
+
+section .game-block {
+    transition: transform .5s;
+    position: relative;
+    height: 120px;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.game-block .face {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: #FFF;
+    font-size: 90px;
+    font-weight: bold;
+    backface-visibility: hidden;
+}
+
+@media(max-width:925px) {
+    .container {
+        width: 100%;
+    }
+
+    section .game-block {
+        height: 50px;
+    }
+
+    section {
+        padding: 5px;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(80px, 1fr));
+        gap: 5px;
+    }
+
+    .game-block .face {
+        font-size: 20px;
+    }
+
+    header {
+        font-size: 18px;
+    }
+}
+
+section .game-block .front {
+    background-color: #333;
+}
+
+section .game-block .front::after {
+    content: '!';
+}
+
+section .game-block .back {
+    background-color: #607D8B;
+    transform: rotateY(180deg);
+}
+
+section .roted {
+    transform: rotateY(180deg);
+}
+
+.noclick {
+    pointer-events: none;
+}
